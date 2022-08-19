@@ -2,6 +2,10 @@ const grid = document.querySelector(".grid");
 var gridElement = document.querySelectorAll(".gridElement");
 var slider = document.getElementById("myRange");
 var colorPicker = document.getElementById("colorPicker");
+var pen = document.getElementById("pen");
+var eraser = document.getElementById("eraser");
+var clear = document.getElementById("clear");
+var selectedColor = "black";
 
 function createGrid(){
     dimensions = getDimensions();
@@ -75,6 +79,26 @@ createGrid();
 
 grid.addEventListener('mousedown', draw, false);
 grid.addEventListener('mouseup', stopDraw);
+pen.addEventListener('click', penFunction);
+eraser.addEventListener('click', eraserFunction);
+clear.addEventListener('click', clearFunction);
+eraserFunction
+
+function penFunction(){
+    grid.removeAttribute('id');
+    grid.id = "penGrid";
+    selectedColor = selectColor();
+}
+function eraserFunction(){
+    grid.removeAttribute('id');
+    grid.id = "eraserGrid";
+    selectedColor = "white";
+}
+function clearFunction(){
+    gridElement.forEach((gridElements) => {
+        gridElements.style.backgroundColor = "white";
+});
+}
 
 function draw(){
     gridElement.forEach((gridElements) => {
@@ -92,25 +116,11 @@ function stopDraw(){
 });
 }
 function color(){
-    var selectedColor = selectColor();
     this.classList.add("colored");
     this.style.backgroundColor = selectedColor;
 }
 
-const eraser = document.querySelector("#erase");
-
-eraser.addEventListener('click', erase);
-
-function erase(){
-    gridElement.forEach((gridElements) => {
-        gridElements.style.backgroundColor = "white";
-    });
-    grid.removeAttribute('id');
-    grid.id = "penEraser";
-}
-
 function selectColor(){
-    var selectedColor = "black";
     selectedColor = colorPicker.value;
     return selectedColor;
 }

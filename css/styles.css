@@ -63,7 +63,10 @@ h1{
     -ms-user-select: none;
     cursor: url("../pen.png"), auto;
 }
-#penEraser{
+#penGrid{
+    cursor: url("../pen.png"), auto;
+}
+#eraserGrid{
     cursor: url("../eraser.png"), auto;
 }
 .gridElement{
@@ -177,11 +180,48 @@ p{
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
+    transition: 0.3s ease-in-out;
 }
 #eraser:hover{
     cursor: pointer;
+    opacity: 0.8;
 }
-#eraserLabel, #colorLabel{
+#eraser:active{
+    transform: scale(0.8);
+}
+#eraserLabel, #colorLabel,#penLabel,#clearLabel{
     color: white;
     font-weight: 400;
+}
+#pen{
+    height: 60px;
+    width: 60px;
+    background-image: url("../pen.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    transition: 0.2s ease-in-out;
+}
+#pen:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#pen:active{
+    transform: scale(0.8);
+}
+#clear{
+    height: 60px;
+    width: 60px;
+    background-image: url("../clear.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+#clear:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#clear:active{
+    transform: scale(0.8);
 }
