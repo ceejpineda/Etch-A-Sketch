@@ -105,6 +105,8 @@ function erase(){
     gridElement.forEach((gridElements) => {
         gridElements.style.backgroundColor = "white";
     });
+    grid.removeAttribute('id');
+    grid.id = "penEraser";
 }
 
 function selectColor(){

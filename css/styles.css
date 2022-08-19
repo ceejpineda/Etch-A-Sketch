@@ -39,6 +39,15 @@ h1{
     align-items: center;
     gap: 20px;
 }
+.controls{
+    background-color: #189AB4;
+    box-shadow:10px 10px #05445E;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 .grid{
     display: grid;
     border: thick solid #189AB4;
@@ -52,7 +61,10 @@ h1{
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    cursor: url("../pen.png"), auto; 
+    cursor: url("../pen.png"), auto;
+}
+#penEraser{
+    cursor: url("../eraser.png"), auto;
 }
 .gridElement{
     border: 1px dotted rgba(24,154,198, 0.5);
@@ -153,4 +165,15 @@ p{
 #colorPicker::-moz-color-swatch{
     border: none;
     border-radius: 50%;
+}
+#eraser{
+    height: 60px;
+    width: 60px;
+    background-image: url("../eraser.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+#eraser:hover{
+    cursor: pointer;
 }
