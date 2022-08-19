@@ -1,6 +1,7 @@
 const grid = document.querySelector(".grid");
 var gridElement = document.querySelectorAll(".gridElement");
 var slider = document.getElementById("myRange");
+var colorPicker = document.getElementById("colorPicker");
 
 function createGrid(){
     dimensions = getDimensions();
@@ -10,6 +11,9 @@ function createGrid(){
     widthGrid = Math.floor(Math.sqrt(widthGrid))**2;
     gridElementSize = Math.sqrt(heightGrid);
     pixelCount = slider.value;
+    if(pixelCount == 3){
+        pixelCount = 4;
+    }
     console.log(heightGrid,widthGrid);
     console.log(pixelCount);
 
@@ -50,6 +54,10 @@ slider.oninput = function(){
     createGrid();
 }
 
+colorPicker.oninput = function(){
+    selectedColor = this.value;
+}
+
 
 function resizeGrid(){
     var child = grid.lastElementChild;
@@ -80,13 +88,12 @@ function stopDraw(){
         gridElements.removeEventListener('mousemove', color);
 });
 }
-var selectedColor = "black";
 function color(){
     this.classList.add("colored");
     this.style.backgroundColor = selectedColor;
 }
 
-
+var selectedColor = "black";
 const eraser = document.querySelector("#erase");
 const colorSelector = document.querySelector("#colorSelector");
 
@@ -100,7 +107,7 @@ function erase(){
 }
 
 function selectColor(){
-    selectedColor = "blue";
+    selectedColor = colorPicker.value;
 }
 
 
