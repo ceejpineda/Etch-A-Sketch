@@ -7,21 +7,28 @@
         <script src="./js/script.js" defer></script>
     </head>
     <body>
+
         <div class="header"><h1>Etch-A-Sketch</h1></div>
 
         <div class="body">
-            <input type="color" id="colorPicker" value="#000000">
-            <button id="erase">Erase</button>
-            <div class="grid"></div>
-            <button id="colorSelector">Color</button>
-            <button id="erase">Erase</button>
+            <div class="content">
+                <div class="controls">
+                    <button id="erase">Erase</button>
+                    <div class="colorSelector">
+                        <input type="color" id="colorPicker" value="#000000">
+                    </div>
+                </div>
+                <div class="grid"></div>
+            </div>
         </div>
 
         <div class="slidecontainer">
-            <h2>Size of Grid</h2>
+            <h2>Pixel Size</h2>
             <input type="range" min="1" max="3" value="1" step="1" class="slider" id="myRange">
+            <div class="sliderLabel">
+                <p>Regular</p> <p>Small</p> <p>Tiny</p>
+            </div>
         </div>
-
 
         <div class="footer">The Odin Project</div>
     </body>
