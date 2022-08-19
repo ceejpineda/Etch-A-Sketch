@@ -72,12 +72,6 @@ h1{
 .colored{
     background-color: black;
 }
-.sliderLabel{
-    display: flex;
-    justify-content: center;
-    font-size: 1.7vh;
-    gap: 15%;
-}
 p{
     padding: 0;
     margin: 0;
@@ -134,6 +128,16 @@ p{
 #myRange{
     border-radius: 50px;
 }
+
+.sliderLabel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5vh;
+    gap: 15%;
+}
+
 .colorSelector{
     display: flex;
     height: 60px;
@@ -176,4 +180,8 @@ p{
 }
 #eraser:hover{
     cursor: pointer;
+}
+#eraserLabel, #colorLabel{
+    color: white;
+    font-weight: 400;
 }
