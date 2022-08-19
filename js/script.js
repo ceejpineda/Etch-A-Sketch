@@ -92,24 +92,25 @@ function stopDraw(){
 });
 }
 function color(){
+    var selectedColor = selectColor();
     this.classList.add("colored");
     this.style.backgroundColor = selectedColor;
 }
 
-var selectedColor = "black";
 const eraser = document.querySelector("#erase");
 
 eraser.addEventListener('click', erase);
-colorSelector.addEventListener('click', selectColor);
 
 function erase(){
     gridElement.forEach((gridElements) => {
         gridElements.style.backgroundColor = "white";
-});
+    });
 }
 
 function selectColor(){
+    var selectedColor = "black";
     selectedColor = colorPicker.value;
+    return selectedColor;
 }
 
 
