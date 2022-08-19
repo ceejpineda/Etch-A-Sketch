@@ -57,6 +57,9 @@ slider.oninput = function(){
 colorPicker.oninput = function(){
     selectedColor = this.value;
 }
+colorPicker.onchange = function(){
+    selectedColor = this.value;
+}
 
 
 function resizeGrid(){
@@ -95,7 +98,6 @@ function color(){
 
 var selectedColor = "black";
 const eraser = document.querySelector("#erase");
-const colorSelector = document.querySelector("#colorSelector");
 
 eraser.addEventListener('click', erase);
 colorSelector.addEventListener('click', selectColor);
