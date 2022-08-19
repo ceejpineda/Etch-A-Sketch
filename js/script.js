@@ -1,26 +1,32 @@
 const grid = document.querySelector(".grid");
 var gridElement = document.querySelectorAll(".gridElement");
+var slider = document.getElementById("myRange");
 
 function createGrid(){
     dimensions = getDimensions();
-    heightGrid = Math.floor((dimensions[0])/1.5);
+    heightGrid = Math.floor((dimensions[0])/1.4);
     heightGrid = Math.floor(Math.sqrt(heightGrid))**2;
-    widthGrid = Math.floor((dimensions[1])/1.5);
-    widthGrid = Math.floor(Math.sqrt(widthGrid))**2
+    widthGrid = Math.floor((dimensions[1])/1.4);
+    widthGrid = Math.floor(Math.sqrt(widthGrid))**2;
+    gridElementSize = Math.sqrt(heightGrid);
+    pixelCount = slider.value;
     console.log(heightGrid,widthGrid);
-    pixelSize = Math.sqrt(heightGrid);
-    for(var i=0; i<pixelSize**2; i++){
+    console.log(pixelCount);
+
+    grid.style.height = `${heightGrid}px`;
+    grid.style.width = `${heightGrid}px`;
+    grid.style.gridTemplateRow = `repeat(${gridElementSize*pixelCount}, 1fr)`;
+    grid.style.gridTemplateColumns = `repeat(${gridElementSize*pixelCount}, 1fr)`;
+
+    for(var i=0; i<(gridElementSize*pixelCount)**2; i++){
         const gridElement = document.createElement("div");
-        grid.style.height = `${heightGrid}px`;
-        grid.style.width = `${heightGrid}px`;
-        grid.style.gridTemplateRow = `repeat(${pixelSize}, 1fr)`;
-        grid.style.gridTemplateColumns = `repeat(${pixelSize}, 1fr)`;
         gridElement.classList.add("gridElement");
-        gridElement.style.height = `${pixelSize}px`;
-        gridElement.style.width = `${pixelSize}px`;
+        gridElement.style.height = `${gridElementSize/pixelCount}px`;
+        gridElement.style.width = `${gridElementSize/pixelCount}px`;
         gridElement.style.boxSizing = "border-box";
         grid.appendChild(gridElement);
     }
+
     window.addEventListener('resize', resizeGrid);
     gridElement = document.querySelectorAll(".gridElement");
 }
@@ -33,6 +39,15 @@ function getDimensions(){
     var size = Math.min(height,width);
     console.log(height,width,size);
     return [height, width, size];
+}
+
+slider.oninput = function(){
+        var child = grid.lastElementChild;
+    while(child){
+        grid.removeChild(child);
+        child = grid.lastElementChild;
+    }
+    createGrid();
 }
 
 
