@@ -5,6 +5,8 @@ var colorPicker = document.getElementById("colorPicker");
 var pen = document.getElementById("pen");
 var eraser = document.getElementById("eraser");
 var clear = document.getElementById("clear");
+var rainbow = document.getElementById("rainbow");
+var shadow = document.getElementById("shadow");
 var selectedColor = "black";
 
 function createGrid(){
@@ -82,22 +84,35 @@ grid.addEventListener('mouseup', stopDraw);
 pen.addEventListener('click', penFunction);
 eraser.addEventListener('click', eraserFunction);
 clear.addEventListener('click', clearFunction);
-eraserFunction
+rainbow.addEventListener('click', rainbowFunction);
+shadow.addEventListener('click', shadowFunction);
+var rainbowColor = 0;
 
 function penFunction(){
     grid.removeAttribute('id');
     grid.id = "penGrid";
     selectedColor = selectColor();
+    rainbowColor = 0;
 }
 function eraserFunction(){
     grid.removeAttribute('id');
     grid.id = "eraserGrid";
     selectedColor = "white";
+    rainbowColor = 0;
 }
 function clearFunction(){
     gridElement.forEach((gridElements) => {
         gridElements.style.backgroundColor = "white";
 });
+}
+function rainbowFunction(){
+    grid.removeAttribute('id');
+    grid.id = "rainbowGrid";
+    rainbowColor = 1;
+}
+function shadowFunction(){
+    grid.removeAttribute('id');
+    grid.id = "shadowGrid";
 }
 
 function draw(){
@@ -116,13 +131,25 @@ function stopDraw(){
 });
 }
 function color(){
-    this.classList.add("colored");
-    this.style.backgroundColor = selectedColor;
+    if(rainbowColor == 1){
+        this.style.backgroundColor = getRandomColor();
+    }else{
+        this.style.backgroundColor = selectedColor;
+    }
 }
 
 function selectColor(){
     selectedColor = colorPicker.value;
     return selectedColor;
+}
+
+function getRandomColor(){
+    var hex = '0123456789ABCDEF';
+    var hexCode = '#';
+    for (var i = 0; i < 6; i++){
+        hexCode += hex[Math.floor(Math.random()*16)];
+    }
+    return hexCode;
 }
 
 

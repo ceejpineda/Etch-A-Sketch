@@ -69,6 +69,12 @@ h1{
 #eraserGrid{
     cursor: url("../eraser.png"), auto;
 }
+#rainbowGrid{
+    cursor: url("../rainbow.png"), auto;
+}
+#shadowGrid{
+    cursor: url("../shadow.png"), auto;
+}
 .gridElement{
     border: 1px dotted rgba(24,154,198, 0.5);
 }
@@ -189,7 +195,7 @@ p{
 #eraser:active{
     transform: scale(0.8);
 }
-#eraserLabel, #colorLabel,#penLabel,#clearLabel{
+#eraserLabel, #colorLabel,#penLabel,#clearLabel,#rainbowLabel,#shadowLabel{
     color: white;
     font-weight: 400;
 }
@@ -223,5 +229,37 @@ p{
     opacity: 0.8;
 }
 #clear:active{
+    transform: scale(0.8);
+}
+#rainbow{
+    height: 60px;
+    width: 60px;
+    background-image: url("../rainbow.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+#rainbow:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#rainbow:active{
+    transform: scale(0.8);
+}
+#shadow{
+    height: 60px;
+    width: 60px;
+    background-image: url("../shadow.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+}
+#shadow:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#shadow:active{
     transform: scale(0.8);
 }
