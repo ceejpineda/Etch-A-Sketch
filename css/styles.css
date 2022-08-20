@@ -29,19 +29,19 @@ h1{
     padding: 0;
     font-weight: 200;
     color:#189AB4;
-    text-shadow:3px 3px #05445E;
+    text-shadow:0.5vh 0.5vh #05445E;
 }
 .body{
     margin: auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5vh;
 }
 .controls{
     background-color: #189AB4;
-    box-shadow:10px 10px #05445E;
-    padding: 5px 10px;
+    box-shadow:0.5vw 0.5vw #05445E;
+    padding: 0.5vw 1vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,7 +51,7 @@ h1{
     display: grid;
     border: thick solid #189AB4;
     background-color: white;
-    box-shadow:10px 10px #05445E;
+    box-shadow:0.5vw 0.5vw #05445E;
     align-items: center;
     text-align: center;
     user-drag: none;
@@ -75,7 +75,7 @@ h1{
     cursor: url("../images/shadow.png"), auto;
 }
 .gridElement{
-    border: 1px dotted rgba(24,154,198, 0.5);
+    border: 0.1vh dotted rgba(24,154,198, 0.5);
 }
 .colored{
     background-color: black;
@@ -93,11 +93,12 @@ p{
     text-align: center;
     background-color: #189AB4;
     align-self: stretch;
+    font-size: 2vh;
 }
 .slidecontainer{
     width: 60%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 4vh;
     text-align: center;
 }
 
@@ -134,7 +135,10 @@ p{
     cursor: pointer;
 }
 #myRange{
-    border-radius: 50px;
+    border-radius: 20vw;
+}
+h2{
+    font-size: 2.5vh;
 }
 
 .sliderLabel{
@@ -215,6 +219,7 @@ p{
 #eraserLabel, #colorLabel,#penLabel,#clearLabel,#rainbowLabel,#shadowLabel{
     color: white;
     font-weight: 400;
+    font-size: 1.6vh;
 }
 #pen{
     height: 6vh;
