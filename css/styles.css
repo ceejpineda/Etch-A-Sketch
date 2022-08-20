@@ -3,10 +3,10 @@ html, body{
 }
 @font-face {
     font-family: Silkscreen;
-    src: url(../Silkscreen-Regular.ttf);
+    src: url(../fonts/Silkscreen-Regular.ttf);
 }
 body{
-    font-family: Silkscreen;
+    font-family: Silkscreen, sans-serif;
     min-height: 100vh;
     background-color: #D4F1F4;
     margin: 0px;
@@ -33,7 +33,7 @@ h1{
     text-shadow:3px 3px #05445E;
 }
 .body{
-    margin auto 0;
+    margin: auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,19 +61,19 @@ h1{
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    cursor: url("../pen.png"), auto;
+    cursor: url("../images/pen.png"), auto;
 }
 #penGrid{
-    cursor: url("../pen.png"), auto;
+    cursor: url("../images/pen.png"), auto;
 }
 #eraserGrid{
-    cursor: url("../eraser.png"), auto;
+    cursor: url("../images/eraser.png"), auto;
 }
 #rainbowGrid{
-    cursor: url("../rainbow.png"), auto;
+    cursor: url("../images/rainbow.png"), auto;
 }
 #shadowGrid{
-    cursor: url("../shadow.png"), auto;
+    cursor: url("../images/shadow.png"), auto;
 }
 .gridElement{
     border: 1px dotted rgba(24,154,198, 0.5);
@@ -158,7 +158,7 @@ p{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("../color-circle.png");
+    background-image: url("../images/color-circle.png");
     background-size: 100%;
     background-position: center;
 }
@@ -198,7 +198,7 @@ p{
 #eraser{
     height: 6vh;
     width: 6vh;
-    background-image: url("../eraser.png");
+    background-image: url("../images/eraser.png");
     background-repeat: no-repeat;
     background-size: 6vh;
     background-position: center;
@@ -219,7 +219,7 @@ p{
 #pen{
     height: 6vh;
     width: 6vh;
-    background-image: url("../pen.png");
+    background-image: url("../images/pen.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 6vh;
@@ -236,7 +236,7 @@ p{
 #clear{
     height: 6vh;
     width: 6vh;
-    background-image: url("../clear.png");
+    background-image: url("../images/clear.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 6vh;
@@ -253,7 +253,7 @@ p{
 #rainbow{
     height: 6vh;
     width: 6vh;
-    background-image: url("../rainbow.png");
+    background-image: url("../images/rainbow.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 6vh;
@@ -270,7 +270,7 @@ p{
 #shadow{
     height: 6vh;
     width: 6vh;
-    background-image: url("../shadow.png");
+    background-image: url("../images/shadow.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 6vh;

@@ -174,7 +174,6 @@ function getRandomColor(){
 }
 function getShadow(){
     var sibling = this.nextElementSibling;
-
 }
 
 
