@@ -1,3 +1,5 @@
+
+// Global Variables
 const grid = document.querySelector(".grid");
 var gridElement = document.querySelectorAll(".gridElement");
 var slider = document.getElementById("myRange");
@@ -7,8 +9,21 @@ var eraser = document.getElementById("eraser");
 var clear = document.getElementById("clear");
 var rainbow = document.getElementById("rainbow");
 var shadow = document.getElementById("shadow");
-var selectedColor = "black";
+var selectedColor = selectColor();
+var rainbowColor = 0;
+var shadowColor = 0;
 
+
+// Event Listeners
+grid.addEventListener('mousedown', draw, false);
+grid.addEventListener('mouseup', stopDraw);
+pen.addEventListener('click', penFunction);
+eraser.addEventListener('click', eraserFunction);
+clear.addEventListener('click', clearFunction);
+rainbow.addEventListener('click', rainbowFunction);
+shadow.addEventListener('click', shadowFunction);
+
+///// START OF GRID FUNCTIONS /////
 function createGrid(){
     dimensions = getDimensions();
     heightGrid = Math.floor((dimensions[0])/1.4);
@@ -37,9 +52,18 @@ function createGrid(){
         gridElement.style.backgroundColor = "rgb(255,255,255)";
         grid.appendChild(gridElement);
     }
-
+    
     window.addEventListener('resize', resizeGrid);
     gridElement = document.querySelectorAll(".gridElement");
+}
+
+function resizeGrid(){
+    var child = grid.lastElementChild;
+    while(child){
+        grid.removeChild(child);
+        child = grid.lastElementChild;
+    }
+    createGrid();
 }
 
 function getDimensions(){
@@ -60,36 +84,12 @@ slider.oninput = function(){
     }
     createGrid();
 }
-
-colorPicker.oninput = function(){
-    selectedColor = this.value;
-}
-colorPicker.onchange = function(){
-    selectedColor = this.value;
-}
+///// END OF GRID FUNCTIONS /////
 
 
-function resizeGrid(){
-    var child = grid.lastElementChild;
-    while(child){
-        grid.removeChild(child);
-        child = grid.lastElementChild;
-    }
-    createGrid();
-}    
 
-createGrid();
 
-grid.addEventListener('mousedown', draw, false);
-grid.addEventListener('mouseup', stopDraw);
-pen.addEventListener('click', penFunction);
-eraser.addEventListener('click', eraserFunction);
-clear.addEventListener('click', clearFunction);
-rainbow.addEventListener('click', rainbowFunction);
-shadow.addEventListener('click', shadowFunction);
-var rainbowColor = 0;
-var shadowColor = 0;
-
+///// START OF CONTROL FUNCTIONS /////
 function penFunction(){
     grid.removeAttribute('id');
     grid.id = "penGrid";
@@ -107,7 +107,7 @@ function eraserFunction(){
 function clearFunction(){
     gridElement.forEach((gridElements) => {
         gridElements.style.backgroundColor = "white";
-});
+    });
 }
 
 function rainbowFunction(){
@@ -123,13 +123,15 @@ function shadowFunction(){
     shadowColor = 1;
     rainbowColor = 0;
 }
+///// END OF CONTROL FUNCTIONS /////
 
+///// START OF DRAWING FUNCTIONS /////
 function draw(){
     gridElement.forEach((gridElements) => {
         gridElements.addEventListener('mouseenter', color);
         gridElements.addEventListener('mouseover', color);
         gridElements.addEventListener('mousemove',color)
-});
+    });
 }
 
 function stopDraw(){
@@ -137,8 +139,11 @@ function stopDraw(){
         gridElements.removeEventListener('mouseenter', color);
         gridElements.removeEventListener('mouseover', color);
         gridElements.removeEventListener('mousemove', color);
-});
+    });
 }
+///// END OF DRAWING FUNCTIONS /////
+
+///// START OF COLOR FUNCTIONS /////
 function color(){
     if(rainbowColor == 1){
         this.style.backgroundColor = getRandomColor();
@@ -175,6 +180,16 @@ function getRandomColor(){
 function getShadow(){
     var sibling = this.nextElementSibling;
 }
+
+colorPicker.oninput = function(){
+    selectedColor = this.value;
+}
+colorPicker.onchange = function(){
+    selectedColor = this.value;
+}
+///// END OF COLOR FUNCTIONS /////
+
+createGrid();
 
 
 
