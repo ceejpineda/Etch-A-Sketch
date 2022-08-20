@@ -34,6 +34,7 @@ function createGrid(){
         gridElement.style.height = `${gridElementSize/pixelCount}px`;
         gridElement.style.width = `${gridElementSize/pixelCount}px`;
         gridElement.style.boxSizing = "border-box";
+        gridElement.style.backgroundColor = "rgb(255,255,255)";
         grid.appendChild(gridElement);
     }
 
@@ -87,32 +88,40 @@ clear.addEventListener('click', clearFunction);
 rainbow.addEventListener('click', rainbowFunction);
 shadow.addEventListener('click', shadowFunction);
 var rainbowColor = 0;
+var shadowColor = 0;
 
 function penFunction(){
     grid.removeAttribute('id');
     grid.id = "penGrid";
     selectedColor = selectColor();
     rainbowColor = 0;
+    shadowColor = 0;
 }
 function eraserFunction(){
     grid.removeAttribute('id');
     grid.id = "eraserGrid";
     selectedColor = "white";
     rainbowColor = 0;
+    shadowColor = 0;
 }
 function clearFunction(){
     gridElement.forEach((gridElements) => {
         gridElements.style.backgroundColor = "white";
 });
 }
+
 function rainbowFunction(){
     grid.removeAttribute('id');
     grid.id = "rainbowGrid";
     rainbowColor = 1;
+    shadowColor = 0;
 }
+
 function shadowFunction(){
     grid.removeAttribute('id');
     grid.id = "shadowGrid";
+    shadowColor = 1;
+    rainbowColor = 0;
 }
 
 function draw(){
@@ -133,6 +142,18 @@ function stopDraw(){
 function color(){
     if(rainbowColor == 1){
         this.style.backgroundColor = getRandomColor();
+    }else if(shadowColor == 1){
+        var shade = this.nextElementSibling.style.backgroundColor;
+        if(shade.slice(0,4) == 'rgb('){
+            var rgbArray = shade.substring(4,shade.length-1).replace(/ /g, '').split(",");
+            var shader = `rgb(${rgbArray[0]*0.9},${rgbArray[1]*0.9},${rgbArray[2]*0.9}, 0.7)`
+        }else if(shade.slice(0,4) == 'rgba'){
+            var rgbArray = shade.substring(5,shade.length-1).replace(/ /g, '').split(",");
+            var shader = `rgb(${rgbArray[0]*0.9},${rgbArray[1]*0.9},${rgbArray[2]*0.9}, 0.7)`
+        }else{
+            shader = "rgb(255,255,255);"
+        }
+        this.style.backgroundColor = shader;
     }else{
         this.style.backgroundColor = selectedColor;
     }
@@ -150,6 +171,10 @@ function getRandomColor(){
         hexCode += hex[Math.floor(Math.random()*16)];
     }
     return hexCode;
+}
+function getShadow(){
+    var sibling = this.nextElementSibling;
+
 }
 
 

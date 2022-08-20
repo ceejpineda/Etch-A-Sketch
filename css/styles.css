@@ -15,7 +15,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
 }
 .header{
     font-weight: 200;
@@ -43,7 +42,7 @@ h1{
 .controls{
     background-color: #189AB4;
     box-shadow:10px 10px #05445E;
-    padding: 0 10px;
+    padding: 5px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,8 +97,8 @@ p{
 .slidecontainer{
     width: 60%;
     height: auto;
+    margin-bottom: 20px;
     text-align: center;
-    flex-grow: 1;
 }
 
 .slider{
@@ -111,7 +110,6 @@ p{
     background-color: #05445E;
     outline: none;
     transition: opacity 0.2s;
-    flex-grow: 1;
 }
 
 .slider:hover{
@@ -147,44 +145,62 @@ p{
     font-size: 1.5vh;
     gap: 15%;
 }
-
+.colorBundle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .colorSelector{
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background-image: url("../color-circle.png");
     background-size: 100%;
+    background-position: center;
 }
 #colorPicker{
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 3vh;
+    width: 3vh;
     border: none;
     outline: none;
     overflow: hidden;
     cursor: pointer;
+    background-position: center;
+    text-align: center;
 }
 #colorPicker::-webkit-color-swatch-wrapper{
     padding: 0;
+    background-position: center;
+    text-align: center;
 }
 #colorPicker::-moz-color-swatch-wrapper{
     padding: 0;
+    background-position: center;
+    text-align: center;
 }
 #colorPicker::-webkit-color-swatch{
     border: none;
     border-radius: 50%;
+    background-position: center;
+    text-align: center;
 }
 #colorPicker::-moz-color-swatch{
     border: none;
     border-radius: 50%;
+    background-position: center;
+    text-align: center;
 }
 #eraser{
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     background-image: url("../eraser.png");
     background-repeat: no-repeat;
+    background-size: 6vh;
     background-position: center;
     width: 100%;
     transition: 0.3s ease-in-out;
@@ -201,11 +217,12 @@ p{
     font-weight: 400;
 }
 #pen{
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     background-image: url("../pen.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 6vh;
     width: 100%;
     transition: 0.2s ease-in-out;
 }
@@ -217,11 +234,12 @@ p{
     transform: scale(0.8);
 }
 #clear{
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     background-image: url("../clear.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 6vh;
     width: 100%;
     transition: 0.3s ease-in-out;
 }
@@ -233,11 +251,12 @@ p{
     transform: scale(0.8);
 }
 #rainbow{
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     background-image: url("../rainbow.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 6vh;
     width: 100%;
     transition: 0.3s ease-in-out;
 }
@@ -249,11 +268,12 @@ p{
     transform: scale(0.8);
 }
 #shadow{
-    height: 60px;
-    width: 60px;
+    height: 6vh;
+    width: 6vh;
     background-image: url("../shadow.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 6vh;
     width: 100%;
     transition: 0.3s ease-in-out;
 }
