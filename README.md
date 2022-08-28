@@ -12,25 +12,25 @@ Mix and match colors until you get the desired design.
 
 ## Features:
 ### 🖊️ Pen Tool:
--Draws on the selected(pointed) grid with the color chosen.
+- Draws on the selected(pointed) grid with the color chosen.
 
 ### 🎒 Eraser Tool:
--Erases selected(pointed) colored grids on the screen.
+- Erases selected(pointed) colored grids on the screen.
 
 ### 🧹 Clear Tool:
--Clears the whole grid
+- Clears the whole grid
 
 ### 🌈 Rainbow Tool:
--Randomly changes your color for every grid you draw on. Have fun!
+- Randomly changes your color for every grid you draw on. Have fun!
 
 ### 🌚 Shadow Tool:
--Puts shadow(darker shades) of colors besides the chosen grid.
+- Puts shadow(darker shades) of colors besides the chosen grid.
 
 ### 🦄 Color Picker:
--Choose the Color for the Pen Tool
+- Choose the Color for the Pen Tool
 
 ### 🏁 Grid Size:
--Slide the grid size slider for the desired grid size.
+- Slide the grid size slider for the desired grid size.
 
 ## Built With
 - HTML5
